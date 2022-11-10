@@ -2,20 +2,31 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Contact contact = new Contact()
+            bool flag = true;
+            while (flag)
             {
-                FirstName = "D",
-                LastName = "B",
-                Address = "CooperColony",
-                City = "Satara",
-                State = "Maharashtra",
-                zip = 374856,
-                PhoneNumber = 1234567890,
-                Email = "Div@gmail.com"
-            };
-            Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.zip + " " + contact.PhoneNumber + " " + contact.Email);
+                Address address = new Address();
+                Console.WriteLine("\nselect Program\n 1.AddContacts");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        address.AddContact();
+                        break;
+                    case 2:
+                        address.Display();
+                        break;
+                            
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        flag = false;
+                        break;
+                        
+                }
+
+            }
         }
     }
 }
