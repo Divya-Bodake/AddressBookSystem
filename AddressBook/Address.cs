@@ -15,7 +15,7 @@ namespace AddressBook
         List<Contact> address = new List<Contact>();
         public void Display()
         {
-            foreach (Contact contact in address)
+            foreach (var contact in address)
             {
                 Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.Address + "\n" + contact.City + "\n" + contact.State + "\n" + contact.zip + "\n" + contact.PhoneNumber + "\n" + contact.Email);
             }
@@ -49,7 +49,7 @@ namespace AddressBook
             //AddContact();
             foreach (var contact in address)
             {
-                if (contact.FirstName.Equals(name))
+                if (contact.FirstName == name)
                 {
                     Console.WriteLine("---------------------------\n");
                     Console.WriteLine("Enter The Option To Update");
@@ -95,7 +95,6 @@ namespace AddressBook
                             Display();
                     }
                     
-                    
                 }
                 else
                 {
@@ -103,6 +102,23 @@ namespace AddressBook
                 }
             }
         }
-              
+        public void DeleteContact(string name)
+        {
+            try
+            {
+                foreach (var contact in address.ToList())
+                {
+                    if (contact.FirstName.Equals(name))
+                    {
+                        address.Remove(contact);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
     }
 }

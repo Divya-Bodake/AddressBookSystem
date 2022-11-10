@@ -9,7 +9,7 @@
             while (flag)
             {
                 
-                Console.WriteLine("\nselect Program\n 1.AddContacts \n 2.Display \n 3.EditContact"  );
+                Console.WriteLine("\nselect Program\n 1.AddContacts \n 2.Display \n 3.EditContact \n 4.DeleteContact"  );
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -23,6 +23,11 @@
                         Console.WriteLine("Enter Name of Contact you want to edit");
                         string name = Console.ReadLine();
                         address.EditContact(name);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter first name");
+                        string firstName = Console.ReadLine();
+                        address.DeleteContact(firstName);
                         break;
                             
                     default:
